@@ -28,6 +28,14 @@ alias cheftar="rm chef.tar.gz && tar -czvf chef.tar.gz --exclude=.git --exclude=
 alias fs="stat -f '%z bytes'"
 alias df="df -h"
 
+# sv services
+alias svs='sudo sv start /var/service/*' 
+alias svr='sudo sv restart /var/service/*'
+alias svd='sudo sv down /var/service/*'
+
+# update_time
+alias update_time='sudo ntpdate ntp.ubuntu.com'
+
 # git
 alias gl='git pull'
 alias gp='git push'

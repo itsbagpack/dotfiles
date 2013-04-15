@@ -4,7 +4,7 @@ require 'rubygems'
 require 'pp'
 
 begin
-  require 'ap'
+  require 'awesome_print'
 rescue LoadError
   puts "*** awesome_print disabled ***"
   require 'pp'

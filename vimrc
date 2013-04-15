@@ -40,27 +40,9 @@ set more                        " page on extended output
 set ttyfast                     " smoother redraws
 set lazyredraw                  " do not redraw while executing macros
 set showcmd                     " show command /eing typed
-set tags=~/.tags                " grab tags directory, all the way up to root
+set tags+=tags;/
 set title                       " set the title
 set shortmess=at                " eliminate annoying 'Press ENTER or type command to continue' notices
-
-" load all the things (vundle)
-filetype off                   
-
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
-
-Bundle 'gmarik/vundle'
-Bundle 'tpope/vim-haml'
-Bundle 'tpope/vim-rails'
-Bundle 'pangloss/vim-javascript'
-Bundle 'scrooloose/nerdcommenter'
-Bundle 'scrooloose/nerdtree'
-Bundle 'Lokaltog/vim-powerline'
-Bundle 'kien/rainbow_parentheses.vim'
-Bundle 'kien/ctrlp.vim'
-
-filetype plugin indent on
 
 " file type detection
 if has('autocmd')
@@ -163,23 +145,6 @@ map <Leader>h <C-w>h
 nmap <silent> <Leader>n :NERDTreeToggle<CR>
 let g:NERDTreeDirArrows=0
 
-" powerline
-"let g:Powerline_symbols = 'fancy'
-let g:Powerline_colorscheme='default'
-
-" nerdcommenter
-let NERDSpaceDelims=1
-let NERDCompactSexyComs=1
-
-" rainbows
-nnoremap <leader>rp :RainbowParenthesesToggle<CR>
-
-" folding settings
-set foldmethod=indent   "fold based on indent
-set foldnestmax=10      "deepest fold is 10 levels
-set nofoldenable        "dont fold by default
-set foldlevel=1         "this is just what i use
-
 " jump to last cursor position when opening a file.
 autocmd BufReadPost * call SetCursorPosition()
 function! SetCursorPosition()
@@ -189,32 +154,6 @@ function! SetCursorPosition()
     endif
   end
 endfunction
-
-" ctrl p for cnuapp
-set wildignore+=/media/**,*//home/alan/media/**,*//home/alan/Music/**,*/*.scssc
-"set wildignore+=*/.git/* " This line breaks fugitive.vim
-set wildignore+=*.pyc,*/*.scssc
-set wildignore+=*/cabar/*,*/cnu_active_record/*,*/cnuapp_ci/*,*/cnuapp_doc/*,*/cnuapp_env/*
-set wildignore+=*/cnuapp_qa/*,*/cnuapp_rack/*,*/cnu_bloom/*,*/cnu_brand/*,*/cnu_cluster/*
-set wildignore+=*/cnu_config/*,*/cnu_content/*,*/cnu_database/*,*/cnu_gems/*,*/cnu_ivr/*
-set wildignore+=*/cnu_ldap/*,*/cnu_locale/*,*/cnu_logger/*,*/cnu_memcache/*,*/cnu_perf/*
-set wildignore+=*/cnu_pg/*,*/cnu_product_offering/*,*/cnu_rails_app/*,*/cnu_regexp/*
-set wildignore+=*/cnu_ruby_build/*,*/cnu_ruby_core/*,*/cnu_ruby_lib/*,*/cnu_scm/*
-set wildignore+=*/cnu_selenium/*,*/cnu_service/*,*/cnu_space/*,*/cnu_test/*,*/contenter_api/*
-set wildignore+=*/cookbooks/*,*/db_global/*,*/doc/*,*/enf_app/*,*/enf_log/*,*/lsws-3.3.14/*
-set wildignore+=*/mod_rails/*,*/rails-1.2/*,*/red_steak/*,*/screenshots/*,*/shout_trace/*
-set wildignore+=*/sol_api/*,*/trick_serial/*,*/waffles/*,*/wtf/*
-set wildignore+=*static/CACHE/css/*
-set wildignore+=*/cnuapp/apache/*,*/cnuapp/bin/*
-set wildignore+=*/cnuapp/debian/*,*/cnuapp/gems/*,*/cnuapp/gui/*,*/cnuapp/include/*
-set wildignore+=*/cnuapp/locproot/*,*/cnuapp/lsws/*,*/cnuapp/noderoot/*
-set wildignore+=*/cnuapp/plugins/*,*/cnuapp/queries/*,*/cnuapp/Rakefile/*,*/cnuapp/Rakefile.US/*
-set wildignore+=*/cnuapp/result.GB/*,*/cnuapp/result.GB.fail/*,*/cnuapp/result.GB.last/*
-set wildignore+=*/cnuapp/result.GB.pass/*,*/cnuapp/script/*,*/cnuapp/src/*
-set wildignore+=*/cnuapp/tmp/*,*/cnuapp/tools/*,*/cnuapp/typeroot/*,*/cnuapp/var/*
-set wildignore+=*/cnuapp/vendor/*
-set wildignore+=*.jpg,*.bmp,*.gif,*.png,*.jpeg
-
 let g:ctrlp_max_files =0
 let g:ctrlp_max_depth =1000
 let g:ctrlp_max_height = 50

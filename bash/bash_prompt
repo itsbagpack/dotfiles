@@ -48,7 +48,7 @@ fi
 
 parse_git_branch(){ git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'; }
 
-PS1="${style_host}⌘  " # host
+PS1="${style_host}cnuapp  " # host
 PS1+="${style_path}\w " # working directory
 PS1+="${style_git}\$(parse_git_branch)${txtrst}" # git details
 PS1+=" ${style_chars}‣ \[${txtrst}\]" # 
