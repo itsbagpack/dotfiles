@@ -1,3 +1,7 @@
+# vm
+alias vmssh='ssh cnuapp@192.168.56.78'
+alias vmsshx='ssh -X cnuapp@192.168.56.78'
+
 # moving up in folders;
 function u() { NUM=${1:-1}; for (( start = 1; start <= $NUM; start++ )); do cd ..; done; }
 alias ..='cd ..'
@@ -27,6 +31,9 @@ alias emptytrash="sudo rm -rfv /Volumes/*/.Trashes; sudo rm -rfv ~/.Trash; sudo 
 alias cheftar="rm chef.tar.gz && tar -czvf chef.tar.gz --exclude=.git --exclude=.ssh --exclude=.DS_Store ."  
 alias fs="stat -f '%z bytes'"
 alias df="df -h"
+
+# bundle
+alias bers='bundle exec rails s'
 
 # git
 alias gl='git pull'
