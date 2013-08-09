@@ -1,3 +1,7 @@
+# vm
+alias vmssh='ssh cnuapp@192.168.56.78'
+alias vmsshx='ssh -X cnuapp@192.168.56.78'
+
 # moving up in folders;
 function u() { NUM=${1:-1}; for (( start = 1; start <= $NUM; start++ )); do cd ..; done; }
 alias ..='cd ..'
@@ -28,6 +32,7 @@ alias cheftar="rm chef.tar.gz && tar -czvf chef.tar.gz --exclude=.git --exclude=
 alias fs="stat -f '%z bytes'"
 alias df="df -h"
 
+<<<<<<< HEAD
 # sv services
 alias svs='sudo sv start /var/service/*' 
 alias svr='sudo sv restart /var/service/*'
@@ -35,6 +40,9 @@ alias svd='sudo sv down /var/service/*'
 
 # update_time
 alias update_time='sudo ntpdate ntp.ubuntu.com'
+
+# bundle
+alias bers='bundle exec rails s'
 
 # git
 alias gl='git pull'

@@ -20,3 +20,5 @@
   log = true
 [rerere]
   enabled = 1
+[push]
+  default = current
