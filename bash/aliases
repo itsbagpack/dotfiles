@@ -32,17 +32,20 @@ alias cheftar="rm chef.tar.gz && tar -czvf chef.tar.gz --exclude=.git --exclude=
 alias fs="stat -f '%z bytes'"
 alias df="df -h"
 
-<<<<<<< HEAD
-# sv services
-alias svs='sudo sv start /var/service/*' 
-alias svr='sudo sv restart /var/service/*'
-alias svd='sudo sv down /var/service/*'
+# pg
+alias pgrestart='pg_ctl -D /usr/local/var/postgres/ -l logfile stop -m fast;pg_ctl -D /usr/local/var/postgres/ -l logfile start;sleep 2;pg_ctl -D /usr/local/var/postgres/ -l logfile status'
 
 # update_time
 alias update_time='sudo ntpdate ntp.ubuntu.com'
 
 # bundle
+alias be='bundle exec'
 alias bers='bundle exec rails s'
+alias berspec='bundle exec rake spec'
+
+# db
+alias onstride_db='psql -h onstride_a-nut.cashnetusa.com -U ywong onstride_prod'
+alias identity_db='psql -h proddb-identity.netcredit.com -U ywong identity_prod_nc'
 
 # git
 alias gl='git pull'

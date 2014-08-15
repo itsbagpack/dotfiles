@@ -1,12 +1,12 @@
+" load plugins
+execute pathogen#infect()
+
 " colors
 syntax on
-"set t_Co=256
-"colorscheme jellybeans
+" set t_Co=256
+" colorscheme jellybeans
 
 filetype plugin indent on
-
-" pathogen
-call pathogen#infect()
 
 " settings
 set nocompatible                " don't hack around for vi compatiblity
@@ -53,3 +53,4 @@ set list listchars=tab:>-,trail:-
 " replaces %/ with current directory, and %% with current file
 cmap %/ <C-R>=expand("%:p:h")."/"<CR>
 cmap %% <C-R>=expand("%")<CR>
+inoremap <C-tab> <Esc><<i

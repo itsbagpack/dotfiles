@@ -29,6 +29,8 @@ fi
 # path
 export PATH=/usr/lib:~/bin:/usr/local/bin:$PATH
 
+export PATH=$PATH:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin
+
 # heroku toolbelt
 export PATH="/usr/local/heroku/bin:$PATH" 
 
