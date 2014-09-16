@@ -20,8 +20,4 @@ fi
 
 #rbenv
 if [ $(command -v rbenv 2>&1) ]; then eval "$(rbenv init - --no-rehash)"; fi
-
-# new Cisco VPN
-export FIX_VPN_POW=yes
-export FIX_VPN_MINIRAISER=yes
 eval "$(rbenv init -)"
