@@ -49,6 +49,7 @@ set tags=~/.tags                " grab tags directory, all the way up to root
 set title                       " set the title
 set shortmess=at                " eliminate annoying 'Press ENTER or type command to continue' notices
 set list listchars=tab:>-,trail:-
+set runtimepath^=~/.vim/bundle/ctrlp.vim
 
 " replaces %/ with current directory, and %% with current file
 cmap %/ <C-R>=expand("%:p:h")."/"<CR>

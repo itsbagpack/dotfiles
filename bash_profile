@@ -19,5 +19,4 @@ if [[ $platform = 'darwin' ]]; then
 fi
 
 #rbenv
-if [ $(command -v rbenv 2>&1) ]; then eval "$(rbenv init - --no-rehash)"; fi
 eval "$(rbenv init -)"

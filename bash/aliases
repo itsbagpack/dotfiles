@@ -1,7 +1,3 @@
-# vm
-alias vmssh='ssh cnuapp@192.168.56.78'
-alias vmsshx='ssh -X cnuapp@192.168.56.78'
-
 # moving up in folders;
 function u() { NUM=${1:-1}; for (( start = 1; start <= $NUM; start++ )); do cd ..; done; }
 alias ..='cd ..'
@@ -42,10 +38,6 @@ alias update_time='sudo ntpdate ntp.ubuntu.com'
 alias be='bundle exec'
 alias bers='bundle exec rails s'
 alias berspec='bundle exec rake spec'
-
-# db
-alias onstride_db='psql -h onstride_a-nut.cashnetusa.com -U ywong onstride_prod'
-alias identity_db='psql -h proddb-identity.netcredit.com -U ywong identity_prod_nc'
 
 # git
 alias gl='git pull'
