@@ -37,7 +37,7 @@ alias update_time='sudo ntpdate ntp.ubuntu.com'
 # bundle
 alias be='bundle exec'
 alias bers='bundle exec rails s'
-alias berspec='bundle exec rake spec'
+alias berspec='bundle exec rspec'
 
 # git
 alias gl='git pull'

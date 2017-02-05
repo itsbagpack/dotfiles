@@ -1,11 +1,8 @@
 # secrets
 [ -f ~/dotfiles/personal ] && source ~/dotfiles/personal
 
-# completion
-[ -f /etc/bash_completion ] && source /etc/bash_completion
-
 # auto-jump
-[[ -s /etc/profile.d/autojump.sh ]] && . /etc/profile.d/autojump.sh
+[[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autojump.sh
 
 # load files
 for file in ~/dotfiles/bash/{bash_prompt,exports,functions,aliases}; do

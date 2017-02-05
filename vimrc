@@ -1,10 +1,6 @@
-" load plugins
-execute pathogen#infect()
-
 " colors
 syntax on
 " set t_Co=256
-" colorscheme jellybeans
 
 filetype plugin indent on
 

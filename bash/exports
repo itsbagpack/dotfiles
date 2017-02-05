@@ -34,8 +34,9 @@ export PATH=$PATH:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin
 # heroku toolbelt
 export PATH="/usr/local/heroku/bin:$PATH" 
 
-# rbenv
-export PATH=~/.rbenv/bin:$PATH
- 
 # remove duplicates in path
 export PATH=`echo -n $PATH | awk -v RS=":" '{ if (!x[$0]++) {printf s $0; s=":"} }'`
+
+# scala
+export SCALA_HOME=/Users/yuminwong/scala-2.11.2
+export PATH=$PATH:$SCALA_HOME/bin
