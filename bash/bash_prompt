@@ -42,13 +42,13 @@ style_path="\[${txtrst}${txtylw}\]"
 style_chars="\[${txtrst}${txtwht}\]"
 style_git="\[${txtrst}${txtcyn}\]"
 
-if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then 
+if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
   style_host="\[${txtrst}${txtred}\]"
 fi
 
 parse_git_branch(){ git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'; }
 
-PS1="${style_host}瑜\[敏 \]" # host
+PS1="${style_host}瑜敏 itsbagpack " # host
 PS1+="${style_path}\w " # working directory
 PS1+="${style_git}\$(parse_git_branch)${txtrst}" # git details
-PS1+=" ${style_chars}‣ \[${txtrst}\]" # 
+PS1+=" ${style_chars}‣ \[${txtrst}\]" #
