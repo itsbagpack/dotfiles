@@ -1,11 +1,11 @@
 # virtual machines
-function vmstart() { 
+function vmstart() {
   VBoxHeadless --startvm "$1" &
 }
 
-function vmstop { 
+function vmstop {
   VBoxManage controlvm "$1" savestate
-} 
+}
 
 # Create a new directory and enter it
 function md() {
@@ -32,6 +32,11 @@ if [ $? -eq 0 ]; then
   function diff() {
     git diff --no-index --color-words "$@"
   }
+fi
+
+# Use Git's autocomplete
+if [ -f ~/.git-completion.bash ]; then
+  . ~/.git-completion.bash
 fi
 
 # Create a data URL from a file
@@ -154,13 +159,13 @@ function unquarantine() {
   done
 }
 
-# used to refresh ssh connection for tmux 
-# http://justinchouinard.com/blog/2010/04/10/fix-stale-ssh-environment-variables-in-gnu-screen-and-tmux/                                                                                                                                                                                         
-function r() {   
+# used to refresh ssh connection for tmux
+# http://justinchouinard.com/blog/2010/04/10/fix-stale-ssh-environment-variables-in-gnu-screen-and-tmux/
+function r() {
   if [[ -n $TMUX ]]; then
     NEW_SSH_AUTH_SOCK=`tmux showenv|grep ^SSH_AUTH_SOCK|cut -d = -f 2`
-    if [[ -n $NEW_SSH_AUTH_SOCK ]] && [[ -S $NEW_SSH_AUTH_SOCK ]]; then 
-      SSH_AUTH_SOCK=$NEW_SSH_AUTH_SOCK  
+    if [[ -n $NEW_SSH_AUTH_SOCK ]] && [[ -S $NEW_SSH_AUTH_SOCK ]]; then
+      SSH_AUTH_SOCK=$NEW_SSH_AUTH_SOCK
     fi
   fi
 }

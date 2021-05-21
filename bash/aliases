@@ -62,6 +62,9 @@ function gco {
   fi
 }
 
+# cat-file aliases
+alias inflate='ruby -r zlib -e "STDOUT.write Zlib::Inflate.inflate(STDIN.read)"'
+
 # completion with git aliases
 complete -o bashdefault -o default -o nospace -F _git_add ga
 complete -o bashdefault -o default -o nospace -F _git_branch gb
