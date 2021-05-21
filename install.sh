@@ -1,6 +1,6 @@
 #!/bin/bash
 
-FOLDER=~/dotfiles
+FOLDER=../.dotfiles
 
 # dotfiles
 cd      "$FOLDER"
