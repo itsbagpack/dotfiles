@@ -1,6 +1,8 @@
 [user]
-	name = Yumin Wong
-	email = yumin.wong@gamut.com
+ 	name = Yumin Wong
+  	email = itsbagpack@github.com
+[url "ssh://git@github.com/"]
+	insteadOf = https://github.com/
 [color]
   ui = auto
 [color "branch"]
