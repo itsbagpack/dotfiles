@@ -1,45 +1,88 @@
 [user]
  	name = Yumin Wong
-  	email = itsbagpack@github.com
-[url "ssh://git@github.com/"]
-	insteadOf = https://github.com/
-[color]
-  ui = auto
-[color "branch"]
-  current = yellow reverse
-  local = yellow
-  remote = green
-[color "diff"]
-  meta = yellow bold
-  frag = magenta bold
-  old = red bold
-  new = green bold
-[color "status"]
-  added = yellow
-  changed = green
-  untracked = cyan
-[merge]
-  log = true
-[rerere]
-  enabled = 1
-[push]
-  default = current
+  email = wongyumin@gmail.com
+[github]
+  # GitHub username for command-line tools
+  user = itsbagpack
 [alias]
-  d  = diff --patience --ignore-space-change
-  s  = show --patience --ignore-space-change
-  co = checkout
-  ci = commit
-  st = status
+  aa = add --all
   br = branch
   brpb = !git rev-parse --abbrev-ref HEAD | xargs echo -n | pbcopy
   brcrnt = rev-parse --abbrev-ref HEAD
-  shas = log --pretty=format:\"%H\"
-  hist = log --pretty=format:\"%Cgreen%h%Creset %Cblue%ad%Creset %s%C(yellow)%d%Creset %Cblue[%an]%Creset\" --graph --date=short
-  praise = blame
+  bselect = !git branch | grep -v '^*' | fzf-tmux --reverse | xargs git checkout
+  ca = commit --amend --verbose
+  car = commit --amend --no-edit
+  ci = commit
+  co = checkout
+  conflicted = !vim +Conflicted
   count = git shortlog -sn
-[filter "media"]
-	required = true
-	clean = git media clean %f
-	smudge = git media smudge %f
+  copysha = !git rev-parse HEAD | pbcopy
+  d = diff --patience --ignore-space-change
+  s = show --patience --ignore-space-change
+  df = "!f() { [ \"$GIT_PREFIX\" != \"\" ] && cd "$GIT_PREFIX"; git diff --color $@ | diff-so-fancy | less --tabs=4 -RFX; }; f"
+  dfw = !git df -w
+  dc = "!f() { [ \"$GIT_PREFIX\" != \"\" ] && cd "$GIT_PREFIX"; git diff --color --cached $@ | diff-so-fancy | less --tabs=4 -RFX; }; f"
+  dcw = !git dc -w
+  dup = !git checkout development && git fetch origin && echo && git sl development..origin/development && echo && git pull --quiet && git checkout -
+  mup = !git checkout master && git fetch origin && echo && git sl master..origin/master && echo && git pull --quiet && git checkout -
+  fall = fetch --all
+  fad = !git add $(git ls-files --others --exclude-standard -m | fzf --reverse --multi)
+  fadd = !git fadd
+  glog = log -E -i --grep
+  hist = log --pretty=format:\"%Cgreen%h%Creset %Cblue%ad%Creset %s%C(yellow)%d%Creset %Cblue[%an]%Creset\" --graph --date=short
+  p = push
+  pl = pull
+  praise = blame
+  rbc = rebase --continue
+  riu = !git rebase -i $(git rev-parse --abbrev-ref --symbolic-full-name @{u})
+  rid = !git rebase -i $(git merge-base development HEAD)
+  rim = !git rebase -i $(git merge-base master HEAD)
+  dim = !git rebase -i $(git merge-base development HEAD)
+  rdup = !git dup && git rebase development
+  rmup = !git mup && git rebase master
+  shas = log --pretty=format:\"%H\"
+  sl = log --oneline --decorate -20
+  sla = log --oneline --decorate --graph --all -20
+  slp = log --oneline --decorate
+  slap = log --oneline --decorate --graph --all
+  st = status
+  todo = !git log --format=%B -n 1 | grep -A999 '^This change$'
+  uncommit = reset --soft HEAD^
+  unstage = reset
+  upstream = rev-parse --abbrev-ref --symbolic-full-name @{u}
+  ureset = !git reset --hard $(git upstream)
+[color]
+  ui = auto
+[commit]
+  # Show the diff as a comment in the commit message template
+  verbose = true
 [core]
-	excludesfile = /Users/yuminwong/.gitignore
+  # Exclude everything this file. Used for general exclusions.
+	excludesfile = ~/.gitignore
+  # Set attributes on files. Used for general diff improvements.
+	attributesfile = ~/.gitattributes
+  # Don't prompt for commit messages for merge commits
+  mergeoptions = --no-edit
+[credential "https://github.com"]
+	username = itsbagpack
+[fetch]
+  prune = true
+[help]
+  # Autocorrect mistyped commands
+  autocorrect = 1
+[log]
+  decorate = short
+  abbrevCommit = true
+[merge]
+  conflictstyle = diff3
+  ff = only
+  log = true
+[pull]
+  rebase = true
+[push]
+  default = current
+[rebase]
+  # Run `git statsh` if needed before a `git rebase`
+  autoStash = true
+[rerere]
+  enabled = 1

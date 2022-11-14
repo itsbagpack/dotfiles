@@ -1,0 +1,43 @@
+#!/usr/bin/env bash
+
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" &>/dev/null && pwd)"
+
+# Ensure we're working from the root directory
+cd $SCRIPT_DIR && cd ..
+
+# Clean up codespaces environment
+if [[ -n "$CODESPACES" ]]; then
+  sudo chsh -s $(which zsh) $(whoami)
+
+  rm ~/.zshrc
+  mv ~/.gitconfig ~/.gitconfig.old
+  rm ~/.gitconfig
+fi
+
+function copy_file() {
+  local source="$(pwd)/$1"
+  local target=$2
+
+  mkdir -p $(dirname "$target")
+
+  if [[ -f $target ]]; then
+    if [[ ! -L $target ]]; then
+      echo "$target already exists but is not a symlink!"
+    else
+      echo "$target already exists"
+    fi
+  else
+    ln -svf "$source" "$target"
+  fi
+}
+
+# Standard dotfiles
+copy_file gitconfig ~/.gitconfig
+copy_file hushlogin ~/.hushlogin
+copy_file zshrc ~/.zshrc
+
+# Zsh
+copy_file zsh/aliases.zsh ~/.zsh/aliases.zsh
+copy_file zsh/fzf.zsh ~/.zsh/fzf.zsh
+copy_file zsh/g.zsh ~/.zsh/g.zsh
+copy_file zsh/prompt.zsh ~/.zsh/prompt.zsh
