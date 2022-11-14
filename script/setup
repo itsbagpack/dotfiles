@@ -34,3 +34,9 @@ function copy_file() {
 # Standard dotfiles
 copy_file gitconfig ~/.gitconfig
 copy_file zshrc ~/.zshrc
+
+# Zsh
+copy_file zsh/aliases.zsh ~/.zsh/aliases.zsh
+copy_file zsh/fzf.zsh ~/.zsh/fzf.zsh
+copy_file zsh/g.zsh ~/.zsh/g.zsh
+copy_file zsh/prompt.zsh ~/.zsh/prompt.zsh
