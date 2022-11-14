@@ -70,6 +70,9 @@
 [help]
   # Autocorrect mistyped commands
   autocorrect = 1
+[log]
+  decorate = short
+  abbrevCommit = true
 [merge]
   conflictstyle = diff3
   ff = only
