@@ -64,7 +64,7 @@
   # Don't prompt for commit messages for merge commits
   mergeoptions = --no-edit
 [credential "https://github.com"]
-	username = MikeMcQuaid
+	username = itsbagpack
 [fetch]
   prune = true
 [help]
